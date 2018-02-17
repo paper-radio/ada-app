@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import * as d3 from 'd3';
+import * as d3 from 'd3';
 
 @Component({
     selector: 'app-gleba-page',
@@ -9,5 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class GlebaPageComponent implements OnInit {
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        console.log('Hello');
+    }
 }
