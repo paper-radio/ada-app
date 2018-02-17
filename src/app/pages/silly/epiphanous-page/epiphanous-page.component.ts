@@ -3,6 +3,7 @@ import * as ROT from 'rot-js';
 import * as _ from 'lodash';
 
 class Game {
+    /// The HTML Canvas object for the game.
     display: ROT.Display;
     engine: ROT.Engine;
     scheduler: ROT.Scheduler;
@@ -11,7 +12,9 @@ class Game {
 
     constructor(player: Player) {
         this.player = player;
-        this.display = new ROT.Display();
+        this.display = new ROT.Display({
+            fontSize: 19
+        });
         this.map = new Map();
     }
 
@@ -23,11 +26,12 @@ class Game {
     }
 
     drawMap() {
-        console.log(this.map);
+        this.map.draw(this.display);
 
-        _.map(this.map.freeCells, cell => {
-            this.display.draw(cell.x, cell.y, cell.symbol);
-        });
+        let startPosition = _.sample(this.map.freeCells);
+        startPosition.symbol = '@';
+        this.player.setPosition(startPosition);
+        this.player.draw(this.display);
     }
 }
 
@@ -45,13 +49,19 @@ class Map {
         if (value) {
             return;
         } else {
-            const cell = new Cell(x, y, '#');
+            const cell = new Cell(x, y, '#', '#A6E22E');
             this.freeCells.push(cell);
         }
     }
 
     _generateMap() {
         this.digger.create(this.diggerCallback.bind(this));
+    }
+
+    draw(display: ROT.Display) {
+        _.map(this.freeCells, cell => {
+            cell.draw(display);
+        });
     }
 }
 
@@ -61,24 +71,41 @@ class Cell {
     symbol: string;
     color: string;
 
-    constructor(x: number, y: number, symbol: string) {
+    constructor(x: number, y: number, symbol: string, color: string) {
         this.x = x;
         this.y = y;
         this.symbol = symbol;
+        this.color = color;
+    }
+
+    draw(display: ROT.Display) {
+        display.draw(this.x, this.y, this.symbol, this.color);
     }
 }
 
 class Player {
+    /// Players name
     name: string;
+    /// Birthmonth
+    birthMonth: string;
+    /// Players Position
+    cell: Cell;
 
-    x: number;
-    y: number;
-
+    /// Hitpoints
     hp: number;
+    /// Magic Points
     mp: number;
 
     constructor(name: string) {
         this.name = name;
+    }
+
+    setPosition(cell: Cell) {
+        this.cell = cell;
+    }
+
+    draw(display: ROT.Display) {
+        display.draw(this.cell.x, this.cell.y, this.cell.symbol);
     }
 }
 
