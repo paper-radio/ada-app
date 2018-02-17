@@ -5,8 +5,13 @@
 
     <div id="action-containers" class="container">
         <div class="console-log-buttons">
-            <button>I log to the console</button>
+            <button (click)="logToConsole()">I log to the console</button>
+            <button (click)="addSVGTag()">Click to add SVG</button>
+            <button (click)="changeColor()">Click to change color</button>
+            <button (click)="addDot()">Add dot</button>
         </div>
+        <hr>
+        <div id="viz"></div>
     </div>
 
     <p>You can use this as a scratchpad...</p>
