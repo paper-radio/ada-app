@@ -457,6 +457,10 @@
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
+"@types/rot-js@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@types/rot-js/-/rot-js-0.6.1.tgz#9ce65e9bc6ff13010fe55826f3b907be6646acb4"
+
 "@types/selenium-webdriver@^2.53.35", "@types/selenium-webdriver@~2.53.39":
   version "2.53.43"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
@@ -6399,6 +6403,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^2.0.0"
     inherits "^2.0.1"
+
+rot-js@^0.6.5:
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/rot-js/-/rot-js-0.6.5.tgz#5b137a2d52c3b8f09a643e5e6f05ff81019d92c8"
 
 run-queue@^1.0.0, run-queue@^1.0.3:
   version "1.0.3"
