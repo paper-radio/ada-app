@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { GlebaPageComponent } from './pages/silly/gleba-page/gleba-page.component';
 import { EpiphanousPageComponent } from './pages/silly/epiphanous-page/epiphanous-page.component';
 import { CavePageComponent } from './pages/silly/cave-page/cave-page.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
         HomeComponent,
         GlebaPageComponent,
         EpiphanousPageComponent,
-        CavePageComponent
+        CavePageComponent,
+        AboutComponent
     ],
     imports: [BrowserModule, RouterModule.forRoot(routes)],
     providers: [],
